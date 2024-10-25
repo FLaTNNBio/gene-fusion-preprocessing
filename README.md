@@ -3,9 +3,25 @@ Provides a docker image for using FusionCatcher. There is also a procedure for b
 
 # How to create synthetic data
 Define the file `genes_panels.txt` where there are the genes to be used to create the data.
-Genens panel example:
-```txt
 
+Genes panel example:
+```txt
+RUNX1
+ETV6
+RIPOR1
+CTCF
+KMT2A
+EZR
+PAX5
+PTEN
+PMEL
+TAL1
+CRLF2
+MEF2D
+BCL9
+TCF3
+ZNF384
+PBX1
 ```
 
 ## Fusim
