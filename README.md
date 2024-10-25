@@ -5,7 +5,7 @@ Provides a docker image for using FusionCatcher. There is also a procedure for b
 Define the file `genes_panels.txt` where there are the genes to be used to create the data.
 
 Genes panel example:
-```txt
+```text
 RUNX1
 ETV6
 RIPOR1
@@ -76,8 +76,9 @@ Run the following python script `art_data.py` to get the reads of all fasta file
 ---
 
 # Fusion Catcher
-## Run Fusion Catcher using human_v102
+## Run Fusion Catcher
 We will use FusionCatcher for human genome.
+
 Download human_v102 inside the data folder by running the following command:
 ```shell
 mkdir -p data
