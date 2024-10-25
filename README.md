@@ -1,8 +1,14 @@
-# How to run fusioncatcher
-## How to create synthetic data
-Define the file `genes_panels.txt` where there are the genes to be used to create the data.
+# Introduction
+Provides a docker image for using FusionCatcher. There is also a procedure for being able to create synthetic data from [Fusim](https://github.com/aebruno/fusim) and [Art Illumina](https://salsa.debian.org/med-team/art-nextgen-simulation-tools).
 
-### Fusim
+# How to create synthetic data
+Define the file `genes_panels.txt` where there are the genes to be used to create the data.
+Genens panel example:
+```txt
+
+```
+
+## Fusim
 Fusim allows you to generate merges from `genes_panels.txt`.
 
 To install fusim:
@@ -40,7 +46,7 @@ java -jar ./fusim-0.2.2/fusim.jar \
 ```
 Run the following python script `fusim_data.py` to form all possible merges between genes contained in `genes_panel.txt`.
 
-### ART ILLUMINA
+## ART ILLUMINA
 ART ILLUMINA is the tool that allows you to obtain synthetics read from fasta files.
 
 To install ART ILLUMINA install the following package:
@@ -53,8 +59,9 @@ Run the following python script `art_data.py` to get the reads of all fasta file
 
 ---
 
-## Fusion Catcher
-### Run Fusion Catcher using human_v102
+# Fusion Catcher
+## Run Fusion Catcher using human_v102
+We will use FusionCatcher for human genome.
 Download human_v102 inside the data folder by running the following command:
 ```shell
 mkdir -p data
@@ -93,7 +100,7 @@ python2 bin/fusioncatcher.py -d data/human_v102 -i some/input/directory/containi
 In case you want to use fusioncatcher on 'single-end' reads they have to be longer than 130 and you have to specify the `--single-end` parameter.
 
 
-### Run Fusion Catcher on the ART ILLUMINA sequences.
+## Run Fusion Catcher on the ART ILLUMINA sequences.
 
 Run the docker container by mounting the `data` folder making sure that the `fasta.fq` outputs of ART ILLUMINA are present.
 
@@ -108,7 +115,7 @@ mkdir -p data/some_output
 python2 bin/fusioncatcher.py -d data/human_v102 -i data/art_output -o data/some_output
 ```
 
-### Notes on the input of Fusion Catcher
+## Notes on the input of Fusion Catcher
 
 Fusion catcher assumes that the folder containing fastq files are paired-read, specifically they will be paired two by two in alphabetical order. The following are some examples:
 
@@ -139,7 +146,7 @@ For example, this **NOT** is a valid input:
 ```
 It is important that the input folder contains only fastq files related to the reads to be analyzed.
 
-### Notes on the output of Fusion Catcher
+## Notes on the output of Fusion Catcher
 
 Within the folder specified with the parameter `-o data/output/` fusioncatcher will produce several output files, the two most relevant ones below:
 
